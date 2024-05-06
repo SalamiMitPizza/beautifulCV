@@ -148,6 +148,14 @@
           </div>
         </router-link>
       </div>
+      <div class="preview">
+        <router-link v-bind:to="'/resume/template_new'">
+          <div class="preview-wrapper">
+            <img src="../assets/preview/resume-green.png" />
+            <span>template_new</span>
+          </div>
+        </router-link>
+      </div>
     </div>
 
     <div class="sponsoring">
