@@ -96,6 +96,8 @@ git clone https://github.com/salomonelli/best-resume-ever.git
 
 All resumes will be exported to the `pdf/` folder.
 
+Additionally, see this video walkthrough for more guidance with getting started: https://www.youtube.com/watch?v=RCn0Q3ktCKA.
+
 <br>
 
 ## Creating and Updating Templates
