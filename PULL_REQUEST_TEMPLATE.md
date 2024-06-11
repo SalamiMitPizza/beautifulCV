@@ -1,23 +1,7 @@
 <!-- REMOVE EVERYTHING WRITTEN IN UPPERCASE -->
 
 ## This PR contains:
-<!--
- - IMPROVED DOCS
- - A TYPO-FIX
- - A BUGFIX
- - A NEW FEATURE
- - A BREAKING CHANGE
- - SOMETHING ELSE
--->
+Improved Docs
 
 ## Describe the problem you have without this PR
-<!-- DESCRIBE PROBLEM HERE OR LINK TO AN ISSUE -->
-
-<!--
-
-IMPORTANT: READ THIS BEFORE SUBMISSION:
-
-- IF YOUR PULL-REQUEST CONTAINS A NEW FEATURE, IT MUST HAVE BEEN DISCUSSED AT AN ISSUE BEFORE
-- DO NOT ADD GENERATED FILES TO THE PULL-REQUEST (NOTHING FROM THE pdf-FOLDER)
-
--->
+Added a workaround in the readme for users to be able to use npm dev without downgrading their node.vs version
