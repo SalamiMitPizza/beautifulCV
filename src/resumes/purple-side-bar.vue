@@ -1,5 +1,6 @@
 <template>
 <div class="resume" id="template">
+  <!-- UI elements for the resume header. -->
   <div id="resume-header">
       <div id="header-left">
           <h2 id="position">{{person.position}}</h2>
@@ -16,10 +17,17 @@
           <div id="headshot"></div>
       </div>
   </div>
+
   <div id="resume-body">
+    <!-- UI elements for the items on the left side of the main resume template. -->
     <div id="resume-body-left">
+      <!-- This is for the "skills" part of the resume. -->
       <div id="skills-container" v-if="person.skills != []">
-            <h2 id="skills-title">{{ lang.skills }}</h2>
+            <!-- This is for the icon and header part of this container. -->
+            <div class="icon">
+                <i class="material-icons">done_all</i>
+                <h2 id="skills-title">{{ lang.skills }}</h2>
+            </div>
             <div class="spacer"></div>
             <p id="skill-description">{{person.knowledge}}</p>
             <ul id="skill-list">
@@ -31,9 +39,16 @@
             </ul>
         </div>
     </div>
+
+    <!-- UI elements for the items on the right side of the main resume template. -->
     <div id="resume-body-right">
+        <!-- This is for the "experience" part of the resume. -->
         <div id="experience-container">
-            <h2 id="experience-title">{{ lang.experience }}</h2>
+            <!-- This is for the icon and header part of this container. -->
+            <div class="icon">
+                <i class="material-icons small-icon">work</i>
+                <h2 id="experience-title">{{ lang.experience }}</h2>
+            </div>
             <div class="spacer"></div>
             <div class="experience" v-for="experience in person.experience" :key="experience.company">
                 <h2 class="company">{{experience.company}}</h2>
@@ -48,20 +63,32 @@
                 </ul>
             </div>
         </div>
+
+        <!-- This is for the "education" part of the resume. -->
         <div id="education-container">
-            <h2 id="education-title">{{ lang.education }}</h2>
+            <!-- This is for the icon and header part of this container. -->
+            <div class="icon">
+                <i class="material-icons">school</i>
+                <h2 id="education-title">{{ lang.education }}</h2>
+            </div>
             <div class="spacer"></div>
             <div class="education" v-for="education in person.education" :key="education.degree">
                 <h2 class="education-description">{{education.description}}</h2>
                 <p><span class="degree">{{education.degree}} | </span><span class="education-timeperiod">{{education.timeperiod}}</span></p>
             </div>
         </div>
+
+        <!-- This is for the "projects" part of the resume. -->
         <div id="projects-container">
-            <h2 id="projects-title">{{ lang.projects }}</h2>
+            <!-- This is for the icon and header part of this container. -->
+            <div class="icon">
+                <i class="material-icons">code</i>
+                <h2 id="projects-title">{{ lang.projects }}</h2>
+            </div>
             <div class="spacer"></div>
             <div class="projects" v-for="projects in person.projects" :key="projects.company">
                 <h2 class="project-name">{{projects.name}}</h2>
-                <p class="job-info"><span class="job-title">{{projects.name}} | </span><span class="projects-timeperiod">{{projects.timeperiod}}</span></p>
+                <p class="job-info"><span class="job-platform">{{projects.platform}} | </span><span class="projects-timeperiod">{{projects.timeperiod}}</span></p>
                 <p class="job-description" v-if="projects.description">{{projects.description}}</p>
                 <ul v-if="projects.list" >
                     <li v-for="(item, index) in projects.list" :key="index">
@@ -74,6 +101,8 @@
         </div>
     </div>
   </div>
+
+  <!-- UI elements for the resume footer. -->
   <div id="resume-footer">
       <div v-if="person.about">
           <h2>{{ lang.about }}</h2>
@@ -87,7 +116,7 @@
 import Vue from 'vue';
 import { getVueOptions } from './options';
 
-const name = 'template_new'; // TODO change name
+const name = 'purple-side-bar'; // TODO change name
 export default Vue.component(name, getVueOptions(name));
 </script>
 
@@ -98,7 +127,6 @@ export default Vue.component(name, getVueOptions(name));
     box-sizing:border-box;
     font-family:'Open Sans', sans-serif;
     h1, h2 {
-        /*font-family:'Open Sans Condensed', sans-serif;*/
         margin: 0;
         color: @text-purple;
     }
@@ -122,6 +150,13 @@ export default Vue.component(name, getVueOptions(name));
         color: black;
     }
 
+    // This is for lining the icon up with the header in the body part of the resume.
+    .icon h2, .icon i {
+        display: inline-block;
+        margin: 0;
+        color: @text-purple;
+    }
+
     #resume-header {
         color: white;
         height: 136px;
@@ -130,7 +165,6 @@ export default Vue.component(name, getVueOptions(name));
         padding: 40px 100px 25px;
 
         #header-left {
-            /*width: 465px;*/
             width: 100%;
             float: left;
             h1 {
@@ -156,34 +190,11 @@ export default Vue.component(name, getVueOptions(name));
                 }
             }
         }
-
-        /*#header-right {
-            width: 125px;
-            float: right;
-            margin: 0px;
-            box-sizing: border-box;
-            height: 140px;
-            background-color: #FFF;
-            padding: 5px;
-            #headshot {
-                width: 100%;
-                height: 100%;
-                background:url('../../resume/id.jpg');
-                background-position:center;
-                background-size:cover;
-            }
-        }*/
     }
 
     #resume-body {
         display: flex;
         position: relative;
-        //width: 100%;
-        //height: 100%;
-        // justify-content: flex-end;
-        // display: inline-block;
-        // font-size: 1.2em;
-        // margin: 8px 0;
     }
 
     #resume-body-left {
@@ -191,40 +202,15 @@ export default Vue.component(name, getVueOptions(name));
         height: 100%;
         padding: 30px;
         text-align: left;
-
-        //overflow: hidden;
         display: block;
-        //z-index: 2;
-
-        //position: absolute;
-        // flex: 50%;
-
-        //display: inline-table;
-        //float: left;
 
       #skills-title {
           font-size: 26px;
           text-transform: uppercase;
       }
-
-      /*#skill-list {
-          column-count: 3;
-          list-style-position: inside;
-          ul li {
-              font-size: 14px;
-          }
-      }
-
-      #skills-container {
-          margin-top: 20px;
-      }*/
     }
 
     #resume-body-right {
-        // padding: 40px 100px;
-        //display: inline-table;
-        //float: left;
-
         display: flex;
         flex-direction: column;
         padding: 30px;
@@ -252,9 +238,7 @@ export default Vue.component(name, getVueOptions(name));
             margin-bottom: 5px;
         }
 
-
-
-        .job-title, .degree {
+        .job-info, .job-platform, .degree {
             font-weight: 700;
             color: @text-purple;
             font-size: 16px;
